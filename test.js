@@ -1,6 +1,6 @@
 // Example usage:
 
-const jsonSimilarity = require(".");
+const jsonSimilarity = require(".").default;
 
 const obj1 = {
   name: "John",

@@ -7,6 +7,7 @@ A Node.js module to compute the similarity score between two JSON objects, outpu
 - **Recursive Comparison**: Deeply compares nested JSON objects and arrays.
 - **Case-Insensitive Strings**: Strings are converted to lowercase before comparison.
 - **Order-Insensitive Arrays**: Arrays are treated as sets; the order of elements doesn't affect the similarity score.
+- **No dependencies**: No additional dependencies needed.
 
 ## Installation
 
@@ -36,6 +37,23 @@ const obj2 = {
 const similarityScore = jsonSimilarity(obj1, obj2);
 console.log(`Similarity Score: ${similarityScore}`); // Output: Similarity Score: 1
 ```
+
+## Command-Line Usage
+
+After installing the package globally, you can use the `json-similarity` command:
+
+````bash
+npm install -g json-similarity
+
+json-similarity file1.json file2.json
+
+### Using `npx`
+
+Alternatively, you can use npx to run the command without installing it globally:
+
+```bash
+npx json-similarity file1.json file2.json
+````
 
 ## API
 
@@ -96,14 +114,10 @@ const similarityScore = jsonSimilarity(arr1, arr2);
 console.log(`Similarity Score: ${similarityScore}`); // Output: Similarity Score: 0.666...
 ```
 
-## License
-
-This project is licensed under the MIT License.
-
 ## Contributing
 
 Contributions are welcome! Please submit an issue or pull request on the GitHub repository.
 
 ---
 
-Feel free to integrate this package into your project. For any issues or feature requests, please open an issue on GitHub.
+Feel free to integrate this package into your project. For any issues or feature requests, please open an issue on [GitHub](https://github.com/thegafo/json-similarity).

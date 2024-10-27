@@ -1,11 +1,15 @@
 {
   "name": "json-similarity",
+  "description": "Compute the similarity score between two JSON objects",
   "repository": {
     "type": "git",
     "url": "https://github.com/thegafo/json-similarity.git"
   },
   "version": "1.0.0",
   "main": "index.js",
+  "bin": {
+    "json-similarity": "./bin/json-similarity.js"
+  },
   "scripts": {
     "test": "node test.js"
   },
@@ -13,7 +17,6 @@
     "JSON",
     "similarity"
   ],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "author": "GAFO TECH",
+  "license": "MIT"
 }
