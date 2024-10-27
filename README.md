@@ -42,18 +42,19 @@ console.log(`Similarity Score: ${similarityScore}`); // Output: Similarity Score
 
 After installing the package globally, you can use the `json-similarity` command:
 
-````bash
+```bash
 npm install -g json-similarity
 
 json-similarity file1.json file2.json
+```
 
-### Using `npx`
+## Using `npx`
 
 Alternatively, you can use npx to run the command without installing it globally:
 
 ```bash
 npx json-similarity file1.json file2.json
-````
+```
 
 ## API
 
