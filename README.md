@@ -1,4 +1,4 @@
-# JSON Similarity
+# JSON Sim
 
 A Node.js module to compute the similarity score between two JSON objects, outputting a score between 0 and 1. The comparison is recursive, case-insensitive for strings, and order-insensitive for arrays.
 
@@ -14,7 +14,7 @@ A Node.js module to compute the similarity score between two JSON objects, outpu
 Install the package via npm:
 
 ```bash
-npm install json-similarity
+npm install json-sim
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ const {
   jsonSimilarityPerKey,
   batchJsonSimilarityPerKey,
   batchJsonSimilarity,
-} = require("json-similarity");
+} = require("json-sim");
 ```
 
 ### Compute Similarity Between Two Objects
@@ -94,12 +94,12 @@ console.log("Batch Similarity:", batchSimilarity);
 
 ## Command-Line Usage
 
-After installing the package globally, you can use the `json-similarity` command:
+After installing the package globally, you can use the `json-sim` command:
 
 ```bash
-npm install -g json-similarity
+npm install -g json-sim
 
-json-similarity file1.json file2.json
+json-sim file1.json file2.json
 ```
 
 ## Using `npx`
@@ -107,7 +107,7 @@ json-similarity file1.json file2.json
 Alternatively, you can use npx to run the command without installing it globally:
 
 ```bash
-npx json-similarity file1.json file2.json
+npx json-sim file1.json file2.json
 ```
 
 ## API
@@ -211,4 +211,4 @@ Contributions are welcome! Please submit an issue or pull request on the GitHub 
 
 ---
 
-Feel free to integrate this package into your project. For any issues or feature requests, please open an issue on [GitHub](https://github.com/thegafo/json-similarity).
+Feel free to integrate this package into your project. For any issues or feature requests, please open an issue on [GitHub](https://github.com/thegafo/json-sim).

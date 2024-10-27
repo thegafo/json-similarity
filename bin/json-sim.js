@@ -6,7 +6,7 @@ const { jsonSimilarity } = require('../index');
 
 function showUsage() {
   console.log(`
-Usage: json-similarity <file1.json> <file2.json>
+Usage: json-sim <file1.json> <file2.json>
 
 Computes the similarity score between two JSON files.
 

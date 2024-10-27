@@ -1,14 +1,14 @@
 {
-  "name": "json-similarity",
+  "name": "json-sim",
   "description": "Compute the similarity score between two JSON objects",
   "repository": {
     "type": "git",
     "url": "https://github.com/thegafo/json-similarity.git"
   },
-  "version": "1.0.1",
+  "version": "1.0.0",
   "main": "index.js",
   "bin": {
-    "json-similarity": "./bin/json-similarity.js"
+    "json-sim": "./bin/json-sim.js"
   },
   "scripts": {
     "test": "node test.js"
