@@ -1,0 +1,19 @@
+{
+  "name": "json-similarity",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thegafo/json-similarity.git"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "JSON",
+    "similarity"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
