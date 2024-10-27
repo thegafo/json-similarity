@@ -77,4 +77,90 @@ function objectSimilarity(obj1, obj2) {
   return allKeys.size === 0 ? 1 : totalSimilarity / allKeys.size;
 }
 
-module.exports = jsonSimilarity;
+/**
+* Calculates similarity score per key between two objects.
+* @param {Object} targetObj - The target object.
+* @param {Object} testObj - The test object to compare with the target.
+* @returns {Object} An object mapping each key to its similarity score.
+*/
+function jsonSimilarityPerKey(targetObj, testObj) {
+  const keys = new Set([...Object.keys(targetObj), ...Object.keys(testObj)]);
+  const similarityPerKey = {};
+
+  keys.forEach(key => {
+    if (targetObj.hasOwnProperty(key) && testObj.hasOwnProperty(key)) {
+      similarityPerKey[key] = jsonSimilarity(targetObj[key], testObj[key]);
+    } else {
+      similarityPerKey[key] = 0;
+    }
+  });
+
+  return similarityPerKey;
+}
+
+/**
+* Computes similarity scores per key for lists of target and test objects.
+* @param {Array<Object>} targetList - List of target objects.
+* @param {Array<Object>} testList - List of test objects.
+* @returns {Object} An object mapping each key to its average similarity score.
+*/
+function batchJsonSimilarityPerKey(targetList, testList) {
+  const allKeys = new Set();
+  targetList.forEach(obj => Object.keys(obj).forEach(key => allKeys.add(key)));
+  testList.forEach(obj => Object.keys(obj).forEach(key => allKeys.add(key)));
+
+  const similaritySums = {};
+  const counts = {};
+
+  allKeys.forEach(key => {
+    similaritySums[key] = 0;
+    counts[key] = 0;
+  });
+
+  targetList.forEach(targetObj => {
+    testList.forEach(testObj => {
+      if (targetObj && testObj) {
+        const perKeySimilarity = jsonSimilarityPerKey(targetObj, testObj);
+        Object.keys(perKeySimilarity).forEach(key => {
+          similaritySums[key] += perKeySimilarity[key];
+          counts[key] += 1;
+        });
+      }
+    });
+  });
+
+  const averageSimilarityPerKey = {};
+  Object.keys(similaritySums).forEach(key => {
+    averageSimilarityPerKey[key] = counts[key] ? similaritySums[key] / counts[key] : 0;
+  });
+
+  return averageSimilarityPerKey;
+}
+
+/**
+* Computes the average similarity score between two lists of JSON objects.
+* @param {Array<Object>} targetList - List of target JSON objects.
+* @param {Array<Object>} testList - List of test JSON objects.
+* @returns {Number} The average similarity score between the lists.
+*/
+function batchJsonSimilarity(targetList, testList) {
+  let totalSimilarity = 0;
+  let count = 0;
+
+  targetList.forEach(targetObj => {
+    testList.forEach(testObj => {
+      const sim = jsonSimilarity(targetObj, testObj);
+      totalSimilarity += sim;
+      count += 1;
+    });
+  });
+
+  return count > 0 ? totalSimilarity / count : 0;
+}
+
+module.exports = {
+  jsonSimilarity,
+  jsonSimilarityPerKey,
+  batchJsonSimilarity,
+  batchJsonSimilarityPerKey,
+};
